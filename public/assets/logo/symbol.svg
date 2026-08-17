@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+  <!-- Estação Ipê — symbol mark
+       Concept: an arched niche window (colonial pousada architecture / azulejo framing)
+       opening onto a flowering ipê branch — the tree that turns Olímpia gold each year.
+       A single coral bloom marks the "pontual" accent. Tick marks at the base nod to
+       platform tiles, a quiet echo of "estação". -->
+
+  <!-- arch / window niche -->
+  <path d="M 50 194 L 50 108 A 70 70 0 0 1 190 108 L 190 194"
+        fill="none" stroke="#1E3F5C" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- azulejo sill -->
+  <g stroke="#1E3F5C" stroke-width="5" stroke-linecap="round">
+    <line x1="82" y1="198" x2="82" y2="210"/>
+    <line x1="158" y1="198" x2="158" y2="210"/>
+  </g>
+
+  <!-- branch -->
+  <path d="M 122 188 Q 110 150 121 112" fill="none" stroke="#1E3F5C" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- ipê blossom cluster -->
+  <g>
+    <circle cx="112" cy="97" r="12" fill="#D68A2D"/>
+    <circle cx="130" cy="93" r="11" fill="#D68A2D"/>
+    <circle cx="120" cy="112" r="13" fill="#D68A2D"/>
+    <circle cx="138" cy="107" r="9" fill="#E4654A"/>
+  </g>
+</svg>

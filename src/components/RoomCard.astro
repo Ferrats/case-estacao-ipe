@@ -1,0 +1,31 @@
+---
+interface Props {
+  image: string;
+  alt: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  capacity: string;
+  beds: string;
+  focal?: string;
+}
+
+const { image, alt, eyebrow, title, description, capacity, beds, focal = 'center' } = Astro.props;
+---
+
+<article class="room-card reveal">
+  <div class="room-image">
+    <img src={image} alt={alt} width="1400" height="1400" loading="lazy" style={`object-position:${focal}`} />
+  </div>
+  <div class="room-content">
+    <p class="eyebrow">{eyebrow}</p>
+    <h3>{title}</h3>
+    <p>{description}</p>
+    <ul aria-label="Características da acomodação">
+      <li>{capacity}</li>
+      <li>{beds}</li>
+      <li>Ar-condicionado</li>
+    </ul>
+    <a class="text-link" href="#reserva">Ver disponibilidade <span>↗</span></a>
+  </div>
+</article>

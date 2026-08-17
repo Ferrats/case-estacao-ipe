@@ -1,0 +1,284 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import BookingBar from '../components/BookingBar.astro';
+import RoomCard from '../components/RoomCard.astro';
+
+const amenities = [
+  ['01', 'Café da manhã', 'Um começo de dia simples, fresco e sem pressa.'],
+  ['02', 'Piscina e jardim', 'Um espaço tranquilo para desacelerar entre os passeios.'],
+  ['03', 'Estacionamento', 'Vaga gratuita dentro da propriedade durante a estadia.'],
+  ['04', 'Atendimento próximo', 'Orientações locais e conversa direta com quem recebe você.']
+];
+
+const faqs = [
+  ['Quais são os horários de check-in e check-out?', 'O check-in acontece a partir das 14h e o check-out até as 11h. Se precisar de outro horário, consulte a disponibilidade antes da chegada.'],
+  ['A pousada recebe crianças?', 'Sim. As suítes Família e Ipê foram pensadas para receber adultos e crianças com conforto. Informe as idades ao consultar a reserva.'],
+  ['O café da manhã está incluído?', 'Sim. O café da manhã está incluído em todas as diárias e é servido diariamente das 7h às 10h.'],
+  ['Há estacionamento?', 'Sim. Cada acomodação possui direito a uma vaga gratuita dentro da propriedade.'],
+  ['Animais de estimação são permitidos?', 'Recebemos animais de pequeno porte mediante consulta prévia, para garantir conforto e segurança a todos os hóspedes.'],
+  ['Como funciona a reserva direta?', 'Você informa as datas e o número de hóspedes. Em seguida, a equipe confirma disponibilidade, valor e condições antes de qualquer pagamento.']
+];
+---
+
+<BaseLayout
+  title="Estação Ipê — Pousada familiar em Olímpia"
+  description="Projeto conceitual de uma pousada familiar em Olímpia-SP, com estadia tranquila, piscina, café da manhã e atendimento próximo."
+>
+  <Header />
+
+  <main id="conteudo">
+    <section class="hero" id="inicio">
+      <img
+        class="hero-background"
+        src="/assets/images/hero-piscina.webp"
+        alt="Piscina cercada por jardim e espreguiçadeiras"
+        width="1800"
+        height="1200"
+        fetchpriority="high"
+      />
+      <div class="hero-overlay"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy reveal">
+          <p class="eyebrow eyebrow-light">Pousada familiar em Olímpia</p>
+          <h1>Dias de parque.<br /><em>Noites de calma.</em></h1>
+          <p>
+            Uma pousada pequena e acolhedora para descansar, reunir a família e aproveitar Olímpia no seu ritmo.
+          </p>
+          <a class="button button-light" href="#reserva">Planejar minha estadia</a>
+        </div>
+        <div class="hero-stamp" aria-hidden="true">
+          <img src="/assets/logo/symbol.svg" alt="" />
+          <span>receber · descansar · aproveitar</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking-wrap" id="reserva" aria-label="Consultar disponibilidade">
+      <div class="container"><BookingBar /></div>
+    </section>
+
+    <section class="section intro" id="experiencia">
+      <div class="container intro-grid">
+        <div class="intro-heading reveal">
+          <p class="eyebrow">Seu ponto de descanso</p>
+          <h2>Olímpia é intensa.<br />Sua estadia não precisa ser.</h2>
+        </div>
+        <div class="intro-copy reveal reveal-delay">
+          <p class="large-copy">
+            A Estação Ipê nasceu para quem quer aproveitar os parques sem abrir mão de silêncio, cuidado e espaço para respirar.
+          </p>
+          <p>
+            Aqui, a experiência é simples de propósito: poucos quartos, ambientes vivos e uma equipe próxima para ajudar você a aproveitar melhor cada dia.
+          </p>
+        </div>
+      </div>
+
+      <div class="container visual-story reveal">
+        <figure class="visual-main">
+          <img src="/assets/images/lounge.webp" alt="Sala iluminada com plantas e sofá azul" width="1400" height="1400" loading="lazy" />
+        </figure>
+        <figure class="visual-side">
+          <img src="/assets/images/fachada-luz.webp" alt="Fachada clara com sombra de folhagens" width="1400" height="933" loading="lazy" />
+        </figure>
+        <div class="visual-note">
+          <span>12</span>
+          <p>acomodações para manter a experiência próxima e tranquila</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section amenities">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">O que faz parte</p>
+          <h2>O essencial, bem cuidado.</h2>
+        </div>
+        <div class="amenities-grid">
+          {amenities.map(([number, title, text]) => (
+            <article class="amenity reveal">
+              <span>{number}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section rooms" id="acomodacoes">
+      <div class="container">
+        <div class="section-heading section-heading-row reveal">
+          <div>
+            <p class="eyebrow eyebrow-light">Acomodações</p>
+            <h2>Um quarto para cada jeito de viajar.</h2>
+          </div>
+          <p>Conforto sem excesso, com espaço para repousar depois de um dia cheio de histórias.</p>
+        </div>
+
+        <div class="rooms-grid">
+          <RoomCard
+            image="/assets/images/suite-varanda.webp"
+            alt="Suíte clara com cama de casal e vista para o jardim"
+            eyebrow="Para duas pessoas"
+            title="Suíte Ipê"
+            description="Clara, silenciosa e aberta para o jardim. Uma escolha confortável para casais."
+            capacity="Até 2 hóspedes"
+            beds="1 cama queen"
+            focal="center"
+          />
+          <RoomCard
+            image="/assets/images/sala-aconchego.webp"
+            alt="Ambiente acolhedor com sofá, plantas e luz natural"
+            eyebrow="Para a família"
+            title="Suíte Família"
+            description="Mais espaço para quem viaja com crianças e quer manter todo mundo por perto."
+            capacity="Até 4 hóspedes"
+            beds="1 cama queen + 2 solteiro"
+            focal="center"
+          />
+          <RoomCard
+            image="/assets/images/janela-verde.webp"
+            alt="Janela de madeira aberta para uma paisagem verde"
+            eyebrow="Mais privacidade"
+            title="Suíte Varanda"
+            description="Uma acomodação reservada, com varanda e clima de casa de campo."
+            capacity="Até 3 hóspedes"
+            beds="1 cama queen + 1 solteiro"
+            focal="center"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery-section" aria-labelledby="galeria-titulo">
+      <div class="container gallery-heading reveal">
+        <p class="eyebrow">Por dentro da Estação</p>
+        <h2 id="galeria-titulo">Espaços que convidam a ficar.</h2>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-wide"><img src="/assets/images/piscina-jardim.webp" alt="Piscina ao ar livre em meio ao jardim" width="1400" height="1400" loading="lazy" /></figure>
+        <figure><img src="/assets/images/cozinha-madeira.webp" alt="Cozinha acolhedora revestida em madeira" width="1400" height="933" loading="lazy" /></figure>
+        <figure><img src="/assets/images/cozinha-clara.webp" alt="Cozinha clara e organizada" width="1200" height="1200" loading="lazy" /></figure>
+        <figure class="gallery-tall"><img src="/assets/images/arquitetura.webp" alt="Interior claro com escada e formas geométricas" width="933" height="1400" loading="lazy" /></figure>
+        <figure><img src="/assets/images/sala-rustica.webp" alt="Sala integrada com madeira e iluminação aconchegante" width="1400" height="933" loading="lazy" /></figure>
+        <figure><img src="/assets/images/fachada-verde.webp" alt="Fachada coberta por folhagens" width="1050" height="1400" loading="lazy" /></figure>
+      </div>
+    </section>
+
+    <section class="section local" id="olimpia">
+      <div class="container local-grid">
+        <div class="local-image reveal">
+          <img src="/assets/images/hero-piscina.webp" alt="Piscina tranquila cercada por vegetação" width="1800" height="1200" loading="lazy" />
+          <div class="local-card">
+            <span>Olímpia, SP</span>
+            <strong>Perto da diversão.<br />Longe da agitação.</strong>
+          </div>
+        </div>
+        <div class="local-copy reveal reveal-delay">
+          <p class="eyebrow">Viva a cidade</p>
+          <h2>Um ponto de partida para dias inteiros.</h2>
+          <p>Você chega aos principais atrativos com facilidade e volta para um bairro tranquilo quando o dia termina.</p>
+          <ol class="local-list">
+            <li><span>01</span><div><strong>Parques aquáticos</strong><p>Diversão para todas as idades durante o dia.</p></div></li>
+            <li><span>02</span><div><strong>Centro e gastronomia</strong><p>Restaurantes e serviços para completar o roteiro.</p></div></li>
+            <li><span>03</span><div><strong>Cultura e folclore</strong><p>Um outro olhar para a história e a identidade de Olímpia.</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="duvidas">
+      <div class="container faq-grid">
+        <div class="faq-intro reveal">
+          <p class="eyebrow">Antes de chegar</p>
+          <h2>Dúvidas simples, respostas diretas.</h2>
+          <p>Se sua pergunta não estiver aqui, você pode falar diretamente com a equipe.</p>
+        </div>
+        <div class="faq-list reveal reveal-delay">
+          {faqs.map(([question, answer]) => (
+            <details>
+              <summary>{question}<span aria-hidden="true">+</span></summary>
+              <p>{answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <img src="/assets/images/fachada-verde.webp" alt="Fachada acolhedora entre folhagens" width="1050" height="1400" loading="lazy" />
+      <div class="final-overlay"></div>
+      <div class="container final-content reveal">
+        <img src="/assets/logo/logo-primary-reverse.svg" alt="Estação Ipê" width="320" height="370" />
+        <div>
+          <p class="eyebrow eyebrow-light">Sua próxima parada</p>
+          <h2>Olímpia espera.<br />Seu descanso também.</h2>
+          <a class="button button-light" href="#reserva">Consultar disponibilidade</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <img src="/assets/logo/logo-horizontal-reverse.svg" alt="Estação Ipê" width="640" height="200" />
+      <p>
+        Projeto conceitual desenvolvido pela Ferrato Design para estudo e demonstração. A pousada, seus dados, acomodações e serviços são fictícios.
+      </p>
+      <a href="#inicio">Voltar ao topo ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('[data-menu-toggle]');
+    const nav = document.querySelector('[data-nav]');
+    const header = document.querySelector('[data-header]');
+
+    toggle?.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      toggle.setAttribute('aria-label', open ? 'Abrir menu' : 'Fechar menu');
+      nav?.classList.toggle('open', !open);
+    });
+
+    nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+      toggle?.setAttribute('aria-expanded', 'false');
+      nav?.classList.remove('open');
+    }));
+
+    const updateHeader = () => header?.classList.toggle('scrolled', window.scrollY > 24);
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+
+    const bookingForm = document.querySelector('[data-booking-form]');
+    const feedback = document.querySelector('[data-booking-feedback]');
+    bookingForm?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      if (!(form instanceof HTMLFormElement) || !form.checkValidity()) {
+        if (form instanceof HTMLFormElement) form.reportValidity();
+        return;
+      }
+      if (feedback instanceof HTMLElement) {
+        feedback.hidden = false;
+        feedback.textContent = 'Consulta demonstrativa concluída. Nenhum dado foi enviado ou armazenado.';
+      }
+    });
+
+    const revealItems = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add('visible'));
+    }
+  </script>
+</BaseLayout>
